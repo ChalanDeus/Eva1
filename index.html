@@ -8,6 +8,35 @@
 <body>
     <h1>Bienvenido a Ethos</h1>
     <p>En nuestra tienda encontrarás todo lo que necesitas</p>
+
+<script>
+    let intervalo; 
+
+    document.addEventListener("visibilitychange", function() {
+        if (document.hidden) {
+            let mensaje = [
+                "Aún sigo aquí...",
+                "No te olvides de mí..."
+            ];
+
+            let posicion = 0;
+
+            intervalo = setInterval(function() {
+                document.title = mensaje[posicion];
+                posicion++;
+
+                if (posicion >= mensaje.length) {
+                    posicion = 0; 
+                }
+            }, 2000);
+
+        } else {
+            clearInterval(intervalo);
+            document.title = "Ethos";
+        }
+    });
+</script>
+
     <footer>
         <p>&copy; 2026 Ethos. Todos los derechos reservados.</p>
     </footer>
