@@ -4,41 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethos</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1>Bienvenido a Ethos</h1>
-    <p>En nuestra tienda encontrarás todo lo que necesitas</p>
+<body> 
+        <header>
+            <h1>Ethos</h1>
+            <p>Tecnología, gaming y accesorios para tu setup</p>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="registros.html">Registros</a>
+                <a href="login.html">Login</a>
+                <a href="carrito.html">Carrito</a>
+            </nav>
+        </header>
 
-<script>
-    let intervalo; 
+        <main>
+            <section>
+                <h2>Bienvenido a Ethos</h2>
+                <p>
+                    En nuestra tienda encontrarás productos tecnológicos
+                    y accesorios gamer para mejorar tu experiencia. 
+                </p>
+                <a href="productos.html">Ver productos</a>
+            </section>
 
-    document.addEventListener("visibilitychange", function() {
-        if (document.hidden) {
-            let mensaje = [
-                "Aún sigo aquí...",
-                "No te olvides de mí..."
-            ];
+            <section>
+                <h2>Productos Destacados</h2>
+                <article>
+                    <img src="img/mouse.webp" alt="Mouse gamer">
+                    <h3>Mouse Gamer</h3>
+                    <p>
+                        Mouse gamer de alta precisión, 
+                        diseñado para juegos competitivos.
+                    </p>
+                    <button
+                        type="button"
+                        class="agregarCarrito"
+                        data-nombre="Mouse Gamer"
+                        data-precio="59990">
+                        Agregar al carrito
+                    </button>
+                </article>
+                
+                <article>
+                    <img src="img/teclado.webp" alt="teclado gamer">
+                    <h3>Teclado Gamer</h3>
+                    <p>
+                        Teclado gamer con excelente respuesta, 
+                        diseñado para juegos competitivos.
+                    </p>
+                    <p>$69.990</p>
+                    <button
+                        type="button"
+                        class="agregarCarrito"
+                        data-nombre="Teclado Gamer"
+                        data-precio="69990">
+                        Agregar al carrito
+                    </button>
+                </article>
 
-            let posicion = 0;
+                <article>
+                    <img src="img/audifonos.jpeg" alt="audifonos gamer">
+                    <h3>Audifonos Gamer</h3>
+                    <p>
+                        Audifonos gamer con micrófono de alta calidad
+                        diseñado para juegos competitivos.
+                    </p>
+                    <p>$49.990</p>
+                    <button
+                        type="button"
+                        class="agregarCarrito"
+                        data-nombre="Audífonos Gamer"
+                        data-precio="49990">
+                        Agregar al carrito
+                    </button>
+                </article>
+            </section>
 
-            intervalo = setInterval(function() {
-                document.title = mensaje[posicion];
-                posicion++;
+            <section>
+                <h2>¿Por qué comprar en Ethos?</h2>
+                <article>
+                    <h3>Productos Gamer</h3>
+                    <p>
+                        Encuentras accesorios de excelente calidad para mejorar
+                        tu computador y tu setup.
+                    </p>
+                </article>
+            </section>
 
-                if (posicion >= mensaje.length) {
-                    posicion = 0; 
-                }
-            }, 2000);
+            <section>
+                <h2>Envíos</h2>
+                <article>
+                    <p>
+                        Realizamos envíos en 24 o 48 horas dependiendo donde vivas,
+                        nuestros productos llegan rapido y seguro a tus manos.
+                    </p>
+                </article>
+            </section>
 
-        } else {
-            clearInterval(intervalo);
-            document.title = "Ethos";
-        }
-    });
-</script>
+            <section>
+                <h2>Compra Segura</h2>
+                <article>
+                    <p>
+                        Su compra esta respaldada por nuestra tienda te aseguramos el pago seguro
+                        de tu producto y una garantía de 6 meses ante fallas de fabricación.
+                    </p>
+                </article>
+            </section>
+        </main>
 
-    <footer>
-        <p>&copy; 2026 Ethos. Todos los derechos reservados.</p>
-    </footer>
+
+        <footer>
+            <p>
+                &copy; 2026 Ethos. 
+                Todos los derechos reservados.
+            </p>
+            <p>
+                Tienda de tecnología y accesorios gamer.
+            </p>
+        </footer>
+
+        <script src="script.js"></script>
+    
 </body>
 </html>

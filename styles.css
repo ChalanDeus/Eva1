@@ -1,0 +1,170 @@
+*{
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #101014;
+    color: white;
+    line-height: 1.6;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 5px;
+}
+
+nav {
+    background-color: #24242d;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #8a5cff;
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+section p {
+    margin-bottom: 15px;
+}
+
+section > a {
+    display: inline-block;
+    background-color: #7c4dff;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+section > a:hover {
+    background-color: #6639db;
+}
+
+article {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    min-width: 250px;
+    background-color: #1d1d25;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+article h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+article p {
+    color: #cccccc;
+}
+
+article img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #7c4dff;
+    color:white;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #6639db;
+}
+
+footer {
+    background-color: #18181f;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    color: #b5b5b5
+}
+
+@media (max-width: 768px){
+    nav a {
+        display: block;
+        margin: 10px;
+    }
+
+    article {
+        width: 90%;
+    }
+
+    header h1 {
+        font-family: 32px;
+    }
+
+    section h2{
+        font-size: 25px;
+    }
+}
+
+form {
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto;
+    background-color: #1d1d25;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.error {
+    display: block;
+    color: #ff5c5c;
+    font-size: 14px;
+    margin-bottom: 10px;
+}

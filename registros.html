@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Ethos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Ethos</h1>
+        <p>Tecnología, gaming y accesorios para tu setup</p>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="registros.html">Registros</a>
+            <a href="login.html">Login</a>
+            <a href="carrito.html">Carrito</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Crear Cuenta</h2>
+            <p>
+                Regístrate para comprar tus productos favoritos
+                en Ethos.
+            </p>
+            <form id="formRegistro">
+                <label for="nombre">Nombre</label>
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    autocomplete="name">
+                <span id="errorNombre" class="error"></span>
+
+                <label for="correo">Correo Electrónico</label>
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    autocomplete="email">
+                <span id="errorCorreo" class="error"></span>
+
+                <label for="password">Contraseña</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="new-password">
+                <span id="errorPassword" class="error"></span>
+
+                <label for="confirmarPassword">
+                    Confirmar Contraseña
+                </label>
+                <input
+                    type="password"
+                    id="confirmarPassword"
+                    name="confirmarPassword"
+                    autocomplete="new-password">
+                <span id="errorConfirmarPassword" class="error"></span>
+
+                <button type="submit">
+                    Registrarse
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            &copy; 2026 Ethos.
+            Todos los derechos reservados.
+        </p>
+        <p>
+            Tienda de tecnología y accesorios gamer.
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
