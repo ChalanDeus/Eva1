@@ -74,7 +74,7 @@ if (formRegistro) {
         }
 
         if (formularioValido) {
-            alert("Registro realizado correctamente.");
+            mostrarMensajeCarrito("Inicio de sesión correcto");;
             formRegistro.reset();
         }
     });
@@ -120,7 +120,7 @@ if (formLogin) {
         }
 
         if (loginValido) {
-            alert("Inicio de sesión correcto.");
+            mostrarMensajeCarrito("Inicio de sesión correcto");
             formLogin.reset();
         }
     });
@@ -257,6 +257,7 @@ function mostrarMensajeCarrito(mensaje) {
         mensajeCarrito.remove();
     }, 2000);
 }
+
 
 const pagarCarrito =
     document.getElementById("pagarCarrito");
