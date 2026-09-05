@@ -9,6 +9,7 @@ body {
     background-color: #101014;
     color: white;
     line-height: 1.6;
+    padding-top: 70px;
 }
 
 header h1 {
@@ -19,13 +20,27 @@ header h1 {
 nav {
     background-color: #24242d;
     padding: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
     font-weight: bold;
+    padding: 8px 12px;
 }
 
 nav a:hover {
@@ -58,13 +73,16 @@ section > a {
     background-color: #7c4dff;
     color: white;
     text-decoration: none;
-    padding: 12px 25px;
+    padding: 12px 28px;
     margin-top: 10px;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 section > a:hover {
     background-color: #6639db;
+    transform: scale(1.05);
 }
 
 article {
@@ -76,6 +94,12 @@ article {
     margin: 10px;
     padding: 20px;
     border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+article:hover {
+    transform: scale(1.03);
 }
 
 article h3 {
@@ -117,22 +141,28 @@ footer {
     color: #b5b5b5
 }
 
-@media (max-width: 768px){
-    nav a {
-        display: block;
-        margin: 10px;
+@media (max-width: 768px) {
+    nav {
+        gap: 5px;
+        padding: 10px;
     }
-
+    nav a {
+        margin: 0;
+        padding: 8px 10px;
+        font-size: 14px;
+    }
     article {
         width: 90%;
     }
-
     header h1 {
-        font-family: 32px;
+        font-size: 32px;
     }
-
-    section h2{
+    section h2 {
         font-size: 25px;
+    }
+    header > p {
+        font-size: 14px;
+        padding: 0 15px;
     }
 }
 
@@ -168,3 +198,51 @@ form input {
     font-size: 14px;
     margin-bottom: 10px;
 }
+
+.precio {
+    color: #9b5cff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.marca {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.marca img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+header > p {
+    text-align: center;
+    color: #b5b5b5;
+    font-size: 16px;
+    margin: 10px 0 15px 0;
+}
+
+.bienvenida {
+    background-color: #18181f;
+    padding: 60px 30px;
+    border-radius: 15px;
+    margin-top: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.bienvenida h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.bienvenida p {
+    color: #cccccc;
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+

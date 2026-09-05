@@ -1,4 +1,5 @@
 let intervalo;
+const tituloOriginal = document.title
 
 document.addEventListener("visibilitychange", function() {
     if (document.hidden) {
@@ -17,7 +18,7 @@ document.addEventListener("visibilitychange", function() {
         }, 2000);
     } else {
         clearInterval(intervalo);
-        document.title = "Ethos";
+        document.title = tituloOriginal;
     }
 });
 
