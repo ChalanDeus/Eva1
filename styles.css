@@ -246,3 +246,26 @@ header > p {
     margin: 0 auto 20px auto;
 }
 
+.mensaje-carrito {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1d1d25;
+    color: white;
+    padding: 20px 30px;
+    border: 2px solid #7c4dff;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+}
+
+.boton-pagar {
+    background-color: #28a745;
+}
+
+.boton-pagar:hover {
+    background-color: #218838;
+}

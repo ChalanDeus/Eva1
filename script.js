@@ -148,7 +148,7 @@ botonesCarrito.forEach(function(boton) {
             JSON.stringify(carrito)
         );
 
-        alert(nombre + " fue agregado al carrito.");
+        mostrarMensajeCarrito(nombre + " fue agregado al carrito");
     });
 });
 
@@ -246,5 +246,34 @@ if (vaciarCarrito) {
             mostrarCarrito();
         }
     );
+}
+
+function mostrarMensajeCarrito(mensaje) {
+    const mensajeCarrito = document.createElement("div");
+    mensajeCarrito.classList.add("mensaje-carrito");
+    mensajeCarrito.textContent = mensaje;
+    document.body.appendChild(mensajeCarrito);
+    setTimeout(function() {
+        mensajeCarrito.remove();
+    }, 2000);
+}
+
+const pagarCarrito =
+    document.getElementById("pagarCarrito");
+
+if (pagarCarrito) {
+    pagarCarrito.addEventListener("click", function() {
+        if (carrito.length === 0) {
+            mostrarMensajeCarrito("Tu carrito está vacío");
+        } else {
+            mostrarMensajeCarrito("Compra realizada correctamente");
+            carrito = [];
+            localStorage.setItem(
+                "carrito",
+                JSON.stringify(carrito)
+            );
+            mostrarCarrito();
+        }
+    });
 }
 
