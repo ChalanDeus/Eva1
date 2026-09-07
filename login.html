@@ -1,71 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iniciar Sesión - Ethos</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="img/logoEthos.png">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="img/logoEthos.png" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="marca">
-            <img src="img/logoEthos.png" alt="Logo Ethos">
-            <h1>Ethos</h1>
-        </div>
-        <p>Tecnología, gaming y accesorios para tu setup</p>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="productos.html">Productos</a>
-            <a href="registros.html">Registros</a>
-            <a href="login.html">Iniciar Sesión</a>
-            <a href="carrito.html">Carrito</a>
-        </nav>
+      <div class="marca">
+        <img src="img/logoEthos.png" alt="Logo Ethos" />
+        <h1>Ethos</h1>
+      </div>
+      <p>Tecnología, gaming y accesorios para tu setup</p>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="registros.html">Registros</a>
+        <a href="login.html">Iniciar Sesión</a>
+        <a href="carrito.html">Carrito</a>
+      </nav>
     </header>
 
     <main>
-        <section>
-            <h2>Iniciar Sesión</h2>
-            <p>
-                Ingresa con tu correo y contraseña.
-            </p>
-            <form id="formLogin">
-                <label for="correoLogin">
-                    Correo Electrónico
-                </label>
-                <input
-                    type="email"
-                    id="correoLogin"
-                    name="correoLogin"
-                    autocomplete="email">
-                <span id="errorCorreoLogin" class="error"></span>
-                <label for="passwordLogin">
-                    Contraseña
-                </label>
-                <input
-                    type="password"
-                    id="passwordLogin"
-                    name="passwordLogin"
-                    autocomplete="current-password">
-                <span id="errorPasswordLogin" class="error"></span>
+      <section>
+        <h2>Iniciar Sesión</h2>
+        <p>Ingresa con tu correo y contraseña.</p>
+        <form id="formLogin">
+          <label for="correoLogin"> Correo Electrónico </label>
+          <input
+            type="email"
+            id="correoLogin"
+            name="correoLogin"
+            autocomplete="email"
+          />
+          <span id="errorCorreoLogin" class="error"></span>
+          <label for="passwordLogin"> Contraseña </label>
+          <input
+            type="password"
+            id="passwordLogin"
+            name="passwordLogin"
+            autocomplete="current-password"
+          />
+          <span id="errorPasswordLogin" class="error"></span>
 
-                <button type="submit">
-                    Iniciar Sesión
-                </button>
-            </form>
-        </section>
+          <button type="submit">Iniciar Sesión</button>
+        </form>
+      </section>
     </main>
 
     <footer>
-        <p>
-            &copy; 2026 Ethos.
-            Todos los derechos reservados.
-        </p>
-        <p>
-            Tienda de tecnología y accesorios gamer.
-        </p>
+      <p>&copy; 2026 Ethos. Todos los derechos reservados.</p>
+      <p>Tienda de tecnología y accesorios gamer.</p>
     </footer>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

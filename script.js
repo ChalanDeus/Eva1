@@ -1,280 +1,230 @@
 let intervalo;
-const tituloOriginal = document.title
+const tituloOriginal = document.title;
 
-document.addEventListener("visibilitychange", function() {
-    if (document.hidden) {
-        let mensaje = [
-            "❤️ Aún sigo aquí...",
-            "😈 No te olvides de mí!",
-            "🔥 ¿Te vas a perder la oferta?"
-        ];
-        let posicion = 0;
-        intervalo = setInterval(function() {
-            document.title = mensaje[posicion];
-            posicion++;
-            if (posicion >= mensaje.length) {
-                posicion = 0;
-            }
-        }, 2000);
-    } else {
-        clearInterval(intervalo);
-        document.title = tituloOriginal;
-    }
+document.addEventListener("visibilitychange", function () {
+  if (document.hidden) {
+    let mensaje = [
+      "❤️ Aún sigo aquí...",
+      "😈 No te olvides de mí!",
+      "🔥 ¿Te vas a perder la oferta?",
+    ];
+    let posicion = 0;
+    intervalo = setInterval(function () {
+      document.title = mensaje[posicion];
+      posicion++;
+      if (posicion >= mensaje.length) {
+        posicion = 0;
+      }
+    }, 2000);
+  } else {
+    clearInterval(intervalo);
+    document.title = tituloOriginal;
+  }
 });
 
 const formRegistro = document.getElementById("formRegistro");
 
 if (formRegistro) {
+  formRegistro.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-    formRegistro.addEventListener("submit", function(event) {
+    const nombre = document.getElementById("nombre");
+    const correo = document.getElementById("correo");
+    const password = document.getElementById("password");
+    const confirmarPassword = document.getElementById("confirmarPassword");
 
-        event.preventDefault();
+    const errorNombre = document.getElementById("errorNombre");
+    const errorCorreo = document.getElementById("errorCorreo");
+    const errorPassword = document.getElementById("errorPassword");
+    const errorConfirmarPassword = document.getElementById(
+      "errorConfirmarPassword",
+    );
 
-        const nombre = document.getElementById("nombre");
-        const correo = document.getElementById("correo");
-        const password = document.getElementById("password");
-        const confirmarPassword = document.getElementById("confirmarPassword");
+    let formularioValido = true;
 
-        const errorNombre = document.getElementById("errorNombre");
-        const errorCorreo = document.getElementById("errorCorreo");
-        const errorPassword = document.getElementById("errorPassword");
-        const errorConfirmarPassword = document.getElementById("errorConfirmarPassword");
+    errorNombre.textContent = "";
+    errorCorreo.textContent = "";
+    errorPassword.textContent = "";
+    errorConfirmarPassword.textContent = "";
 
-        let formularioValido = true;
+    if (nombre.value.trim() === "") {
+      errorNombre.textContent = "El nombre es obligatorio.";
+      formularioValido = false;
+    }
 
-        errorNombre.textContent = "";
-        errorCorreo.textContent = "";
-        errorPassword.textContent = "";
-        errorConfirmarPassword.textContent = "";
+    if (correo.value.trim() === "") {
+      errorCorreo.textContent = "El correo es obligatorio.";
+      formularioValido = false;
+    } else if (!correo.value.includes("@")) {
+      errorCorreo.textContent = "Ingrese un correo válido.";
+      formularioValido = false;
+    }
 
-        if (nombre.value.trim() === "") {
-            errorNombre.textContent = "El nombre es obligatorio.";
-            formularioValido = false;
-        }
+    if (password.value.length < 6) {
+      errorPassword.textContent =
+        "La contraseña debe tener al menos 6 caracteres.";
+      formularioValido = false;
+    }
 
-        if (correo.value.trim() === "") {
-            errorCorreo.textContent = "El correo es obligatorio.";
-            formularioValido = false;
+    if (confirmarPassword.value !== password.value) {
+      errorConfirmarPassword.textContent = "Las contraseñas no coinciden.";
+      formularioValido = false;
+    }
 
-        } else if (!correo.value.includes("@")) {
-            errorCorreo.textContent = "Ingrese un correo válido.";
-            formularioValido = false;
-        }
-
-        if (password.value.length < 6) {
-            errorPassword.textContent =
-                "La contraseña debe tener al menos 6 caracteres.";
-            formularioValido = false;
-        }
-
-        if (confirmarPassword.value !== password.value) {
-            errorConfirmarPassword.textContent =
-                "Las contraseñas no coinciden.";
-            formularioValido = false;
-        }
-
-        if (formularioValido) {
-            mostrarMensajeCarrito("Inicio de sesión correcto");;
-            formRegistro.reset();
-        }
-    });
+    if (formularioValido) {
+      mostrarMensajeCarrito("Inicio de sesión correcto");
+      formRegistro.reset();
+    }
+  });
 }
 
 const formLogin = document.getElementById("formLogin");
 
 if (formLogin) {
-    formLogin.addEventListener("submit", function(event) {
-        event.preventDefault();
+  formLogin.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-        const correoLogin = document.getElementById("correoLogin");
+    const correoLogin = document.getElementById("correoLogin");
 
-        const passwordLogin =
-            document.getElementById("passwordLogin");
+    const passwordLogin = document.getElementById("passwordLogin");
 
-        const errorCorreoLogin =
-            document.getElementById("errorCorreoLogin");
+    const errorCorreoLogin = document.getElementById("errorCorreoLogin");
 
-        const errorPasswordLogin =
-            document.getElementById("errorPasswordLogin");
+    const errorPasswordLogin = document.getElementById("errorPasswordLogin");
 
-        let loginValido = true;
+    let loginValido = true;
 
-        errorCorreoLogin.textContent = "";
-        errorPasswordLogin.textContent = "";
+    errorCorreoLogin.textContent = "";
+    errorPasswordLogin.textContent = "";
 
-        if (correoLogin.value.trim() === "") {
-            errorCorreoLogin.textContent =
-                "El correo es obligatorio.";
-            loginValido = false;
+    if (correoLogin.value.trim() === "") {
+      errorCorreoLogin.textContent = "El correo es obligatorio.";
+      loginValido = false;
+    } else if (!correoLogin.value.includes("@")) {
+      errorCorreoLogin.textContent = "Ingrese un correo válido.";
+      loginValido = false;
+    }
 
-        } else if (!correoLogin.value.includes("@")) {
-            errorCorreoLogin.textContent =
-                "Ingrese un correo válido.";
-            loginValido = false;
-        }
+    if (passwordLogin.value.trim() === "") {
+      errorPasswordLogin.textContent = "La contraseña es obligatoria.";
+      loginValido = false;
+    }
 
-        if (passwordLogin.value.trim() === "") {
-            errorPasswordLogin.textContent =
-                "La contraseña es obligatoria.";
-            loginValido = false;
-        }
-
-        if (loginValido) {
-            mostrarMensajeCarrito("Inicio de sesión correcto");
-            formLogin.reset();
-        }
-    });
+    if (loginValido) {
+      mostrarMensajeCarrito("Inicio de sesión correcto");
+      formLogin.reset();
+    }
+  });
 }
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const botonesCarrito =
-    document.querySelectorAll(".agregarCarrito");
+const botonesCarrito = document.querySelectorAll(".agregarCarrito");
 
-botonesCarrito.forEach(function(boton) {
-    boton.addEventListener("click", function() {
-        const nombre = boton.dataset.nombre;
-        const precio = Number(boton.dataset.precio);
+botonesCarrito.forEach(function (boton) {
+  boton.addEventListener("click", function () {
+    const nombre = boton.dataset.nombre;
+    const precio = Number(boton.dataset.precio);
 
-        const producto = {
-            nombre: nombre,
-            precio: precio
-        };
+    const producto = {
+      nombre: nombre,
+      precio: precio,
+    };
 
-        carrito.push(producto);
+    carrito.push(producto);
 
-        localStorage.setItem(
-            "carrito",
-            JSON.stringify(carrito)
-        );
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 
-        mostrarMensajeCarrito(nombre + " fue agregado al carrito");
-    });
+    mostrarMensajeCarrito(nombre + " fue agregado al carrito");
+  });
 });
 
-const listaCarrito =
-    document.getElementById("listaCarrito");
+const listaCarrito = document.getElementById("listaCarrito");
 
-const totalCarrito =
-    document.getElementById("totalCarrito");
+const totalCarrito = document.getElementById("totalCarrito");
 
 if (listaCarrito) {
-    mostrarCarrito();
+  mostrarCarrito();
 }
 
 function mostrarCarrito() {
+  listaCarrito.innerHTML = "";
 
-    listaCarrito.innerHTML = "";
+  let total = 0;
 
-    let total = 0;
+  if (carrito.length === 0) {
+    listaCarrito.innerHTML = "<p>Tu carrito está vacío.</p>";
+  }
 
+  carrito.forEach(function (producto, posicion) {
+    const productoCarrito = document.createElement("article");
 
-    if (carrito.length === 0) {
+    const nombre = document.createElement("h3");
 
-        listaCarrito.innerHTML =
-            "<p>Tu carrito está vacío.</p>";
+    nombre.textContent = producto.nombre;
 
-    }
+    const precio = document.createElement("p");
 
-    carrito.forEach(function(producto, posicion) {
+    precio.textContent = "$" + producto.precio.toLocaleString("es-CL");
 
-        const productoCarrito =
-            document.createElement("article");
+    const botonEliminar = document.createElement("button");
 
-        const nombre =
-            document.createElement("h3");
+    botonEliminar.textContent = "Eliminar";
 
-        nombre.textContent =
-            producto.nombre;
-
-        const precio =
-            document.createElement("p");
-
-        precio.textContent =
-            "$" + producto.precio.toLocaleString("es-CL");
-
-        const botonEliminar =
-            document.createElement("button");
-
-        botonEliminar.textContent =
-            "Eliminar";
-
-        botonEliminar.addEventListener(
-            "click",
-            function() {
-                eliminarProducto(posicion);
-            }
-        );
-
-        productoCarrito.appendChild(nombre);
-        productoCarrito.appendChild(precio);
-        productoCarrito.appendChild(botonEliminar);
-        listaCarrito.appendChild(productoCarrito);
-
-        total = total + producto.precio;
-
+    botonEliminar.addEventListener("click", function () {
+      eliminarProducto(posicion);
     });
 
-    totalCarrito.textContent =
-        "Total: $" + total.toLocaleString("es-CL");
+    productoCarrito.appendChild(nombre);
+    productoCarrito.appendChild(precio);
+    productoCarrito.appendChild(botonEliminar);
+    listaCarrito.appendChild(productoCarrito);
+
+    total = total + producto.precio;
+  });
+
+  totalCarrito.textContent = "Total: $" + total.toLocaleString("es-CL");
 }
 
 function eliminarProducto(posicion) {
-    carrito.splice(posicion, 1);
+  carrito.splice(posicion, 1);
 
-    localStorage.setItem(
-        "carrito",
-        JSON.stringify(carrito)
-    );
+  localStorage.setItem("carrito", JSON.stringify(carrito));
 
-    mostrarCarrito();
+  mostrarCarrito();
 }
 
-const vaciarCarrito =
-    document.getElementById("vaciarCarrito");
-
+const vaciarCarrito = document.getElementById("vaciarCarrito");
 
 if (vaciarCarrito) {
-    vaciarCarrito.addEventListener(
-        "click",
-        function() {
-            carrito = [];
-            localStorage.setItem(
-                "carrito",
-                JSON.stringify(carrito)
-            );
-            mostrarCarrito();
-        }
-    );
+  vaciarCarrito.addEventListener("click", function () {
+    carrito = [];
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    mostrarCarrito();
+  });
 }
 
 function mostrarMensajeCarrito(mensaje) {
-    const mensajeCarrito = document.createElement("div");
-    mensajeCarrito.classList.add("mensaje-carrito");
-    mensajeCarrito.textContent = mensaje;
-    document.body.appendChild(mensajeCarrito);
-    setTimeout(function() {
-        mensajeCarrito.remove();
-    }, 2000);
+  const mensajeCarrito = document.createElement("div");
+  mensajeCarrito.classList.add("mensaje-carrito");
+  mensajeCarrito.textContent = mensaje;
+  document.body.appendChild(mensajeCarrito);
+  setTimeout(function () {
+    mensajeCarrito.remove();
+  }, 2000);
 }
 
-
-const pagarCarrito =
-    document.getElementById("pagarCarrito");
+const pagarCarrito = document.getElementById("pagarCarrito");
 
 if (pagarCarrito) {
-    pagarCarrito.addEventListener("click", function() {
-        if (carrito.length === 0) {
-            mostrarMensajeCarrito("Tu carrito está vacío");
-        } else {
-            mostrarMensajeCarrito("Compra realizada correctamente");
-            carrito = [];
-            localStorage.setItem(
-                "carrito",
-                JSON.stringify(carrito)
-            );
-            mostrarCarrito();
-        }
-    });
+  pagarCarrito.addEventListener("click", function () {
+    if (carrito.length === 0) {
+      mostrarMensajeCarrito("Tu carrito está vacío");
+    } else {
+      mostrarMensajeCarrito("Compra realizada correctamente");
+      carrito = [];
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarCarrito();
+    }
+  });
 }
-
